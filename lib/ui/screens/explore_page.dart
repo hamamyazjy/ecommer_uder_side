@@ -5,24 +5,31 @@ import 'package:ecommer_user_side/models/type_model.dart';
 import 'package:ecommer_user_side/provider/products_provider.dart';
 import 'package:ecommer_user_side/ui/screens/show_product_category.dart';
 import 'package:ecommer_user_side/ui/widgets/categories_type.dart';
+import 'package:ecommer_user_side/ui/widgets/category)screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'featured_product.dart';
 
-class Explore extends StatelessWidget {
-  final List<TypeModel> typeModel = [
-    TypeModel(name: 'Baby', image: 'assets/images/baby.jpg'),
-    TypeModel(name: 'Men', image: 'assets/images/men.jpg'),
-    TypeModel(name: 'Women', image: 'assets/images/women.jpg'),
-  ];
+class Explore extends StatefulWidget {
+  @override
+  _ExploreState createState() => _ExploreState();
+}
+
+class _ExploreState extends State<Explore> with TickerProviderStateMixin {
+  // final List<TypeModel> typeModel = [
+  //   TypeModel(name: 'Baby', image: 'assets/images/baby.jpg'),
+  //   TypeModel(name: 'Men', image: 'assets/images/men.jpg'),
+  //   TypeModel(name: 'Women', image: 'assets/images/women.jpg'),
+  // ];
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 370, height: 810);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white70,
       body: SafeArea(
         child: ListView(
           children: <Widget>[
@@ -36,7 +43,7 @@ class Explore extends StatelessWidget {
                         height: 200,
                         decoration: BoxDecoration(
                             // borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
+                            // color: Colors.white,
                             boxShadow: [
                               BoxShadow(
                                   color: Color(0xFF075C93).withOpacity(0.3),
@@ -83,26 +90,27 @@ class Explore extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Container(
-              height: 100,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: typeModel.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                ShowAllProductsWithCategory(
-                                  nameCategory: typeModel[index].name,
-                                )));
-                      },
-                      child: CategoryWidget(
-                        typeModel: typeModel[index],
-                      ),
-                    );
-                  }),
-            ),
+            MealsListView(),
+            // Container(
+            //   height: 100,
+            //   child: ListView.builder(
+            //       scrollDirection: Axis.horizontal,
+            //       itemCount: typeModel.length,
+            //       itemBuilder: (context, index) {
+            //         return GestureDetector(
+            //           onTap: () async {
+            //             Navigator.of(context).push(MaterialPageRoute(
+            //                 builder: (BuildContext context) =>
+            //                     ShowAllProductsWithCategory(
+            //                       nameCategory: typeModel[index].name,
+            //                     )));
+            //           },
+            //           child: CategoryWidget(
+            //             typeModel: typeModel[index],
+            //           ),
+            //         );
+            //       }),
+            // ),
             SizedBox(
               height: 5,
             ),
@@ -113,7 +121,9 @@ class Explore extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     "Featured",
-                    style: TextStyle(color: Colors.grey, fontSize: 20),
+                    style: TextStyle(
+                      // color: Colors.grey,
+                       fontSize: 20),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -123,7 +133,9 @@ class Explore extends StatelessWidget {
                     },
                     child: Text(
                       "See All",
-                      style: TextStyle(color: Colors.grey, fontSize: 20),
+                      style: TextStyle(
+                        // color: Colors.grey, 
+                        fontSize: 20),
                     ),
                   ),
                 ],

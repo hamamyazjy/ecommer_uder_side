@@ -3,6 +3,7 @@ import 'package:ecommer_user_side/models/cardModel.dart';
 import 'package:ecommer_user_side/models/productModel.dart';
 import 'package:ecommer_user_side/provider/products_provider.dart';
 import 'package:ecommer_user_side/ui/screens/details_page.dart';
+import 'package:ecommer_user_side/ui/screens/info_screen_details.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +18,7 @@ class ListItem2 extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (BuildContext context) => DetailsPage(
+            builder: (BuildContext context) => CourseInfoScreen(
               products: products,
             ),
           ),

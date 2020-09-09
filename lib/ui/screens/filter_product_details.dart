@@ -64,11 +64,13 @@ class FiltersProductsDetails extends StatelessWidget {
                                         //   child: Loading(),
                                         // )),
                                         Center(
-                                            child: CachedNetworkImage(
-                                                height: 126,
-                                                fit: BoxFit.cover,
-                                                imageUrl:
-                                                    products[index].photoUrl))
+                                            child:CachedNetworkImage(
+                                              
+                                          
+                                          height: 126,
+                                          fit: BoxFit.cover, imageUrl: products[index].photoUrl,
+                                          // imageUrl:
+                                        ))
                                       ],
                                     ),
                                   ),

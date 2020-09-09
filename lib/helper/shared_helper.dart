@@ -99,6 +99,12 @@ class ShaerdHelper {
     bool x = sharedPreferences.getBool('OnBoardingSeen');
     return x;
   }
+  Future<bool> getThemem() async {
+    sharedPreferences = await initSharedPrefrences();
+
+    bool x = sharedPreferences.getBool('darkMode');
+    return x;
+  }
 
   Future<List<String>> getProductsLike() async {
     sharedPreferences = await initSharedPrefrences();

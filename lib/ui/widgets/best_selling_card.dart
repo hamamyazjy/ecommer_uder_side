@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
- import 'package:ecommer_user_side/models/productModel.dart';
+ import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommer_user_side/models/productModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 

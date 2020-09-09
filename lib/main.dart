@@ -4,6 +4,7 @@ import 'package:ecommer_user_side/provider/map_provider.dart';
 import 'package:ecommer_user_side/provider/order_provider.dart';
 import 'package:ecommer_user_side/provider/products_provider.dart';
 import 'package:ecommer_user_side/provider/filter_provider.dart';
+import 'package:ecommer_user_side/provider/theme_notifier.dart';
 import 'package:ecommer_user_side/ui/screens/home_screen.dart';
 
 import 'package:ecommer_user_side/ui/screens/login_screen.dart';
@@ -12,7 +13,9 @@ import 'package:ecommer_user_side/ui/screens/splash_screens.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import 'constant.dart';
 import 'helper/shared_helper.dart';
 
 void main() async {
@@ -20,6 +23,7 @@ void main() async {
   bool isSeen = await ShaerdHelper.sHelper.getValueisSeen();
   bool isSeenOnBoarding = await ShaerdHelper.sHelper.getValueisSeenOnBoarding();
 
+  bool darkModeOn = await ShaerdHelper.sHelper.getThemem() ?? true;
   Widget screen;
 
   if (isSeenOnBoarding == false || isSeenOnBoarding == null) {
@@ -29,7 +33,14 @@ void main() async {
   } else {
     screen = HomeScreen();
   }
-  runApp(MyApp(screen: screen));
+  runApp(
+    ChangeNotifierProvider<ThemeNotifier>(
+      create: (context) {
+        return ThemeNotifier(darkModeOn ? darkTheme : lightTheme);
+      },
+      child: MyApp(screen: screen),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -37,6 +48,8 @@ class MyApp extends StatelessWidget {
   MyApp({this.screen});
   @override
   Widget build(BuildContext context) {
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<AuthProvider>(
@@ -60,7 +73,10 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SplashScreens(screen: screen),
+        // home: SplashScreens(screen: screen),
+        theme: themeNotifier.getTheme(),
+
+        home: HomeScreen(),
       ),
     );
   }

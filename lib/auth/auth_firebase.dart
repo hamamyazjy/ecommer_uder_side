@@ -26,6 +26,7 @@ class FbAuth {
       // create credintial object
       AuthCredential authCredential = GoogleAuthProvider.getCredential(
           idToken: tokenId, accessToken: accesToken);
+          
       // create the user using credintials
       AuthResult authResult =
           await firebaseAuth.signInWithCredential(authCredential);

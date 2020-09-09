@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 
@@ -32,7 +32,8 @@ class CardOrder extends StatelessWidget {
                 Radius.circular(20),
               ),
               child: CachedNetworkImage(
-                imageUrl: products['photoProduct'],
+                imageUrl: 
+                products['photoProduct'],
                 height: 120,
                 width: 140,
                 fit: BoxFit.fill,

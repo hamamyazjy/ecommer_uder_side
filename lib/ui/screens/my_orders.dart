@@ -15,7 +15,7 @@ class MyOrders extends StatelessWidget {
     ScreenUtil.init(context, width: 370, height: 810);
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        // iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -23,7 +23,7 @@ class MyOrders extends StatelessWidget {
           'My Order',
           style: TextStyle(
             fontSize: 20,
-            color: Color(0xff000000),
+            // color: Color(0xff000000),
           ),
         ),
       ),
@@ -101,7 +101,10 @@ class MyOrders extends StatelessWidget {
                                   SizedBox(
                                     width: 20,
                                   ),
-                                  Text('Order $index1'),
+                                  Text(
+                                    'Order $index1',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
                                 ],
                               ),
                               // children: <Widget>[

@@ -5,6 +5,7 @@ import 'package:ecommer_user_side/ui/screens/edit_profile_screen.dart';
 import 'package:ecommer_user_side/ui/screens/home_screen.dart';
 import 'package:ecommer_user_side/ui/screens/login_screen.dart';
 import 'package:ecommer_user_side/ui/screens/my_orders.dart';
+import 'package:ecommer_user_side/ui/screens/setting_page.dart';
 import 'package:ecommer_user_side/ui/screens/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
@@ -48,6 +49,7 @@ class CustomDrawer extends StatelessWidget {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl: information[1],
+                                      // imageUrl:
                                     ),
                                   ),
                             maxRadius: 50,
@@ -57,14 +59,14 @@ class CustomDrawer extends StatelessWidget {
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 25,
-                              color: Color(0xff000000),
+                              // color: Color(0xff000000),
                             ),
                           ),
                           accountEmail: Text(
                             information[0],
                             style: TextStyle(
                               fontSize: 15,
-                              color: Color(0xff000000),
+                              // color: Color(0xff000000),
                             ),
                           ),
                         );
@@ -119,7 +121,7 @@ class CustomDrawer extends StatelessWidget {
                       "Home",
                       style: TextStyle(
                         fontSize: 16,
-                        color: Color(0xff000000),
+                        // color: Color(0xff000000),
                       ),
                     ),
                     trailing: Icon(
@@ -149,7 +151,7 @@ class CustomDrawer extends StatelessWidget {
                       "My Cart",
                       style: TextStyle(
                         fontSize: 16,
-                        color: Color(0xff000000),
+                        // color: Color(0xff000000),
                       ),
                     ),
                     trailing: Icon(
@@ -209,7 +211,7 @@ class CustomDrawer extends StatelessWidget {
                                 "Edit Profile",
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: Color(0xff000000),
+                                  // color: Color(0xff000000),
                                 ),
                               ),
                               trailing: Icon(Icons.navigate_next,
@@ -255,7 +257,7 @@ class CustomDrawer extends StatelessWidget {
                               "My Orders",
                               style: TextStyle(
                                 fontSize: 16,
-                                color: Color(0xff000000),
+                                // color: Color(0xff000000),
                               ),
                             ),
                             trailing: Icon(Icons.navigate_next,
@@ -288,7 +290,7 @@ class CustomDrawer extends StatelessWidget {
                       "Wishlist",
                       style: TextStyle(
                         fontSize: 16,
-                        color: Color(0xff000000),
+                        // color: Color(0xff000000),
                       ),
                     ),
                     trailing: Icon(Icons.navigate_next,
@@ -340,7 +342,7 @@ class CustomDrawer extends StatelessWidget {
                               "Sign Out",
                               style: TextStyle(
                                 fontSize: 16,
-                                color: Color(0xff000000),
+                                // color: Color(0xff000000),
                               ),
                             ),
                             trailing: Icon(
@@ -354,6 +356,33 @@ class CustomDrawer extends StatelessWidget {
                       return Container();
                     }
                   },
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => SettingsPage()));
+                  },
+                  child: ListTile(
+                    leading: Container(
+                      height: 40.00,
+                      width: 40.00,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF075C93).withOpacity(0.7),
+                        borderRadius: BorderRadius.circular(4.00),
+                      ),
+                      child: Icon(Icons.edit),
+                    ),
+                    title: Text(
+                      "Settings",
+                      style: TextStyle(
+                        fontSize: 16,
+                        // color: Color(0xff000000),
+                      ),
+                    ),
+                    trailing: Icon(Icons.navigate_next,
+                        color: Color(0xFF075C93).withOpacity(0.9)),
+                  ),
                 ),
               ],
             ),

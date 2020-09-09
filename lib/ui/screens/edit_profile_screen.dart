@@ -38,7 +38,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.black),
+          // iconTheme: IconThemeData(color: Colors.black),
           elevation: 0,
           centerTitle: true,
           backgroundColor: Colors.transparent,
@@ -46,18 +46,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20.0,
-                  color: Colors.black)),
+                  // color: Colors.black
+                  )),
         ),
         drawer: CustomDrawer(),
         body: Container(
-          color: Colors.white,
+          // color: Colors.white,
           child: ListView(
             children: <Widget>[
               Column(
                 children: <Widget>[
                   Container(
                     height: 250.0,
-                    color: Colors.white,
+                    // color: Colors.white,
                     child: Column(
                       children: <Widget>[
                         Padding(
@@ -101,7 +102,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                                           .imageFile ==
                                                       null
                                                   ? CachedNetworkImageProvider(
-                                                      info[1])
+                                                       info[1],
+                                                    )
                                                   : FileImage(
                                                       Provider.of<AuthProvider>(
                                                               context,
@@ -198,7 +200,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       key:
                           Provider.of<AuthProvider>(context).formKeyEditProfile,
                       child: Container(
-                        color: Color(0xffFFFFFF),
+                        // color: Color(0xffFFFFFF),
                         child: Padding(
                           padding: EdgeInsets.only(bottom: 25.0),
                           child: Column(

@@ -1,7 +1,7 @@
-  
 class TypeModel {
   String name;
-  String  image;
-
-  TypeModel({this.name, this.image});
+  String image;
+  String startColor;
+  String endColor;
+  TypeModel({this.name, this.image, this.startColor, this.endColor});
 }
